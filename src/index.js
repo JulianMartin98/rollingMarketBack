@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import "./db/dbConnection.js";
 import usersRoutes from './routes/usersRoutes.js';
+import comprobarJWT from './middlewares/verifyJWT.js';
 
 
 const app = express()
