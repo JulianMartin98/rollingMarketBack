@@ -3,7 +3,7 @@ import { PORT } from './config/config.js';
 import morgan from 'morgan';
 import cors from 'cors';
 import "./db/dbConnection.js";
-import usersRoutes from './routes/usersRoutes.js';
+
 import productsRoutes from './routes/productsRoutes.js';
 
 
@@ -14,7 +14,7 @@ app.use(morgan("dev")) //da mas informacion de la solicitud.
 app.use(cors()) //para que no revoten las peticiones.
 
 
-app.use("/api/user", usersRoutes);
+
 app.use("/api/product", productsRoutes);
 
 
