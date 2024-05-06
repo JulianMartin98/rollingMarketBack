@@ -53,17 +53,19 @@ export async function UpdateProduct(req, res) {
     }
 };
 
-export async function GetProductbyCategory(req, res) {
+export const GetProductbyCategory = async (req, res) => {
     try {
-        const { category } = req.params
-        const product = await ProductModel.find({ category })
-        if (product.length === 0) {
-            return res.status(200).json([]); // Devolver un array vacío en lugar de un mensaje de error 404
+        const { category } = req.params;
+        if (category === 'Todos') {
+            return await GetAllProducts(req, res);
+        } else {
+            const product = await ProductModel.find({ category });
+            if (product.length === 0) {
+                return res.status(200).json([]); // Devolver un array vacío en lugar de un mensaje de error 404
+            }
+            return res.status(200).json(product)
         }
-        return res.status(200).json(product)
-
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
-
 }
