@@ -58,7 +58,7 @@ export async function GetProductbyCategory(req, res) {
         const { category } = req.params
         const product = await ProductModel.find({ category })
         if (product.length === 0) {
-            return res.status(404).json("No hay productos de la categoria seleccionada");
+            return res.status(200).json([]); // Devolver un array vacío en lugar de un mensaje de error 404
         }
         return res.status(200).json(product)
 
