@@ -4,7 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import "./db/dbConnection.js";
 import usersRoutes from './routes/usersRoutes.js';
-import comprobarJWT from './middlewares/verifyJWT.js';
+import productsRoutes from './routes/productsRoutes.js';
 
 
 const app = express()
@@ -15,6 +15,8 @@ app.use(cors()) //para que no revoten las peticiones.
 
 
 app.use("/api/user", usersRoutes);
+app.use("/api/product", productsRoutes);
+
 
 
 
