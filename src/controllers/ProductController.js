@@ -61,7 +61,7 @@ export const GetProductbyCategory = async (req, res) => {
         } else {
             const product = await ProductModel.find({ category });
             if (product.length === 0) {
-                return res.status(200).json([]); // Devolver un array vacío en lugar de un mensaje de error 404
+                return res.status(200).json([]);
             }
             return res.status(200).json(product)
         }

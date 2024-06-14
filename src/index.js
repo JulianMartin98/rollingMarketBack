@@ -10,8 +10,8 @@ import productsRoutes from './routes/productsRoutes.js';
 const app = express()
 
 app.use(express.json());
-app.use(morgan("dev")) //da mas informacion de la solicitud.
-app.use(cors()) //para que no revoten las peticiones.
+app.use(morgan("dev"))
+app.use(cors()) 
 
 
 app.use("/api/user", usersRoutes);
