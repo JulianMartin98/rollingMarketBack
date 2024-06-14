@@ -18,11 +18,6 @@ app.use("/api/user", usersRoutes);
 app.use("/api/product", productsRoutes);
 
 
-app.get("/", (req,res)=>{
-console.log("Bienvenido a la API de ROLLINGMARKET")
-});
-
-
 
 app.listen(PORT, async () => {
   console.log(`La app está escuchando en el puerto ${PORT}`);
