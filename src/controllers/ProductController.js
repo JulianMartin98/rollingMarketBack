@@ -43,7 +43,11 @@ export async function UpdateProduct(req, res) {
     try {
         const { id } = req.params;
         const { name, description, category, price, stock, image } = req.body;
-        const product = await ProductModel.findByIdAndUpdate(id, { name, description, category, price, stock, image });
+        const product = await ProductModel.findByIdAndUpdate(
+            id, 
+            { name, description, category, price, stock, image },
+            { new: true, runValidators: true }
+        );
         if (!product) {
             return res.status(404).json("Producto no encontrado");
         }
